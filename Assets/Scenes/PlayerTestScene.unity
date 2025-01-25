@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 128349505}
   - component: {fileID: 128349504}
   - component: {fileID: 128349503}
+  - component: {fileID: 128349507}
   m_Layer: 0
   m_Name: TestPillar (1)
   m_TagString: Untagged
@@ -226,6 +227,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &128349507
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128349502}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &144349956
 GameObject:
   m_ObjectHideFlags: 3
@@ -825,6 +853,7 @@ GameObject:
   - component: {fileID: 863257268}
   - component: {fileID: 863257267}
   - component: {fileID: 863257266}
+  - component: {fileID: 863257270}
   m_Layer: 0
   m_Name: TestPillar (2)
   m_TagString: Untagged
@@ -920,6 +949,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &863257270
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863257265}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &895411689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,10 +1181,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 937d53974ce774c49a2dc29e20189d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxMoveForce: 1
-  MaxSpeed: 5
+  MaxAccel: 2
+  MaxSpeed: 15
+  MaxSpinAccel: 4
+  MaxSpinSpeed: 20
+  MaxSpinTime: 0.65
+  SpinDelayTime: 0.2
   MaxRotationDamping: 0.1
+  VirtualCam: {fileID: 1802419379}
+  CameraFOV: 45
+  CameraSpinFOV: 55
   MaxCameraSpeed: 450
+  MaxCameraDamping: 0.01
 --- !u!4 &958972224
 Transform:
   m_ObjectHideFlags: 0
@@ -1266,6 +1330,7 @@ GameObject:
   - component: {fileID: 1230141360}
   - component: {fileID: 1230141359}
   - component: {fileID: 1230141358}
+  - component: {fileID: 1230141362}
   m_Layer: 0
   m_Name: TestPillar
   m_TagString: Untagged
@@ -1361,6 +1426,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1230141362
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230141357}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1800066664
 GameObject:
   m_ObjectHideFlags: 3
@@ -1473,9 +1565,9 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_XDamping: 0
-  m_YDamping: 0
-  m_ZDamping: 0
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
@@ -1523,7 +1615,7 @@ GameObject:
   - component: {fileID: 1802419380}
   - component: {fileID: 1802419379}
   m_Layer: 0
-  m_Name: Virtual Camera
+  m_Name: VirtualCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1545,7 +1637,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 1
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 958972224}
   m_Follow: {fileID: 958972224}
@@ -1682,7 +1774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &2025161714
 Light:
   m_ObjectHideFlags: 0
