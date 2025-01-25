@@ -467,7 +467,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 851872287121461398, guid: 1f481aad678619941ad52ff5191f255d, type: 3}
       propertyPath: MaxScore
-      value: 100
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4880346338898137441, guid: 1f481aad678619941ad52ff5191f255d, type: 3}
       propertyPath: m_Name
