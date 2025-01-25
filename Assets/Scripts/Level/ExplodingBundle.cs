@@ -18,7 +18,10 @@ public class ExplodingBundle : MonoBehaviour
         foreach (Rigidbody obj in objects)
         {
             obj.isKinematic = true;
+            obj.GetComponent<Collectible>().enabled = false;
         }
+
+        transform.rotation = Quaternion.Euler(Random.Range(-180, 180), Random.Range(-180, 180), Random.Range(-180, 180));
     }
 
     private void OnTriggerStay(Collider other)
@@ -30,6 +33,7 @@ public class ExplodingBundle : MonoBehaviour
             foreach (Rigidbody obj in objects)
             {
                 obj.isKinematic = false;
+                obj.GetComponent<Collectible>().enabled = true;
             }
 
             foreach (Rigidbody obj in objects)
@@ -38,6 +42,8 @@ public class ExplodingBundle : MonoBehaviour
                     (obj.position - transform.position).normalized * Random.Range(MinExplosionForce, MaxExplosionForce),
                     ForceMode.Impulse);
             }
+
+            Destroy(gameObject);
         }
     }
 }

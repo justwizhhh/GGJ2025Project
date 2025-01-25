@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HomingRadius: 2.6
-  HomingDamping: 0.04
+  HomingDamping: 0.02
 --- !u!33 &885964780970508973
 MeshFilter:
   m_ObjectHideFlags: 0

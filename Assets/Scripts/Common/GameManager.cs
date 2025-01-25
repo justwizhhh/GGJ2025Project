@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Main Variables")]
+    public int MaxScore;
+
+    [Space(10)]
     [Header("Global Variables")]
     public int Score;
 
@@ -20,10 +24,15 @@ public class GameManager : MonoBehaviour
     {
         Score++;
         // Update HUD, etc etc
+
+        if (Score > MaxScore)
+        {
+            EndGame();
+        }
     }
 
     public void EndGame()
     {
-
+        Debug.Log("You win!");
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StingrayEnemy : FishEnemy
 {
-    public override void OnTriggerStay(Collider collision)
+    public new void OnTriggerStay(Collider collision)
     {
         if (collision.TryGetComponent<PlayerController>(out PlayerController player))
         {

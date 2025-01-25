@@ -8,6 +8,9 @@ public class FishEnemy : Enemy
     public float MaxXRot;
     public float MinXRot;
 
+    [Space(10)]
+    public GameObject Tapioca;
+
     public override void Start()
     {
         base.Start();
@@ -21,12 +24,17 @@ public class FishEnemy : Enemy
         //rb.AddForce(transform.up * Random.Range(-1, 1), ForceMode.Force);
     }
 
-    public override void OnTriggerStay(Collider collision)
+    public new void OnTriggerStay(Collider collision)
     {
         if (collision.TryGetComponent<PlayerController>(out PlayerController player))
         {
             if (player.isSpinning)
             {
+                Rigidbody tapioca = Instantiate(Tapioca, rb.position, Quaternion.identity).GetComponent<Rigidbody>();
+
+                Vector3 randomDir = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)).normalized;
+                tapioca.transform.position = transform.position + (randomDir * 2);
+                tapioca.AddForce(randomDir * 5, ForceMode.Impulse);
                 Destroy(gameObject);
             }
             else

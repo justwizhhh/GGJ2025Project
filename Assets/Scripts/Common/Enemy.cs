@@ -11,7 +11,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] bool can_despawn;
     [SerializeField] Collider attack_radius;
     // Start is called before the first frame update
+    private float initialDespawnTimer;
     [SerializeField] float despawn_timer = 1000.0f;
+
+    private float playerDistance;
 
     [Space(10)]
     [Header("Dom's Code")]
@@ -32,17 +35,19 @@ public class Enemy : MonoBehaviour
     public virtual void Start()
     {
         spawner = FindFirstObjectByType<mlem_spawner>();
-        despawn_timer = 10.0f;
-        despawn_timer = Random.Range(12.0f, 32.0f);
+        initialDespawnTimer = Random.Range(12.0f, 32.0f);
+        despawn_timer = initialDespawnTimer;
         player = FindFirstObjectByType<PlayerController>().gameObject;
     }
 
     void Update()
     {
+        //calculates distance between player and enemies
+        playerDistance = Vector3.Distance(player.transform.position, rb.position);
+
         //checks if the enemy has no health left or despawn timer
         if (despawn_timer <= 0.0f)
         {
-            spawner.enemies_obj.RemoveAll(item => item == null); ;
             Destroy(gameObject);
         }
         detection();
@@ -50,18 +55,17 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //calculates distance between player and enemies
-        float distance = Vector3.Distance(player.transform.position, rb.position);
-        //Debug.Log(distance);
         //checks if out of range and slowly despawns
-        if (distance >= spawner.despawnDistance)
+        if (playerDistance >= spawner.despawnDistance)
         {
             can_despawn = true;
+            despawn_timer = initialDespawnTimer;
         }
-        //checks if in range to home towards the player
-        if (distance <= spawner.despawnDistance)
+        else
         {
             movement();
+            can_despawn = false;
+
         }
     }
 
@@ -75,11 +79,11 @@ public class Enemy : MonoBehaviour
         //removes from despawn timer to slowly kill the enemy
         if (can_despawn)
         {
-            despawn_timer -= (1.0f * Time.fixedDeltaTime);
+            despawn_timer -= Time.deltaTime;
         }
     }
 
-    public virtual void OnTriggerStay(Collider collision)
+    public void OnTriggerStay(Collider collision)
     {
         if (collision.TryGetComponent<PlayerController>(out PlayerController player))
         {
