@@ -8,14 +8,13 @@ public class mlem_spawner : MonoBehaviour
     [SerializeField] public List<GameObject> enemies_obj;
     [SerializeField] public GameObject enemy;
     [SerializeField] bool has_run = false;
+    [SerializeField] GameObject player;
+    [SerializeField] Vector3 spawnpos;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
-
-    // Update is called once per frame
     void Update()
     {
         spawn();
@@ -24,17 +23,21 @@ public class mlem_spawner : MonoBehaviour
     {
         if (enemies <= 5 && !has_run)
         {
+            //instantiates a new enemy and adds it to a list
             GameObject new_enemy = Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity);
             enemies_obj.Add(new_enemy);
-            new_enemy.GetComponent<mlem_enemy>().list_pos = enemies;
+            //sets the spawner parent to the current spawner
+            new_enemy.GetComponent<mlem_enemy>().spawner = gameObject;
+            //randomizes the spawner based on the players location
+            spawnpos = new Vector3(player.transform.position.x + Random.Range(-10.0f, 10.0f), player.transform.position.y + Random.Range(-10.0f, 10.0f), player.transform.position.z + Random.Range(-10.0f, 10.0f));
+            new_enemy.transform.position = spawnpos;
             enemies++;
             Debug.Log("woo");
-            //enemies_obj[i] = Instantiate(enemy, new Vector3(i * 2.0f, 0, 0), Quaternion.identity);
         }
+        //only allows the spawner to run once(if removed it will spam spawn infinitely, add a timer cooldown for spawning????
         if (enemies >= 5)
         {
             has_run = true;
         }
-            
     }
 }
