@@ -118,12 +118,11 @@ GameObject:
   m_Component:
   - component: {fileID: 898460571032985365}
   - component: {fileID: 4356772603991552268}
-  - component: {fileID: 1701422081932552847}
   - component: {fileID: 8650406977018424524}
   - component: {fileID: 2378730457848817666}
   m_Layer: 0
   m_Name: PlayerSquid
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,56 +162,16 @@ MonoBehaviour:
   MaxSpinTime: 0.65
   SpinDelayTime: 0.2
   MaxRotationDamping: 0.1
+  MaxHealth: 3
+  HurtKnockbackForce: 5.5
+  HurtCooldownTime: 2
   VirtualCam: {fileID: 0}
   CameraFOV: 45
   CameraSpinFOV: 55
   CameraDeathDistance: 25
   MaxCameraSpeed: 450
   MaxCameraDamping: 0.01
---- !u!23 &1701422081932552847
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3212097012155104479}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+  HurtMaterials: []
 --- !u!136 &8650406977018424524
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     // Main gameplay logic for player
 
     // Public toggles
+    [Space(10)]
     [Header("Movement Toggles")]
     public float MaxAccel;
     public float MaxSpeed;
@@ -20,6 +21,12 @@ public class PlayerController : MonoBehaviour
     public float MaxRotationDamping;
 
     [Space(10)]
+    [Header("Hurt/death Settings")]
+    public int MaxHealth;
+    public float HurtKnockbackForce;
+    public float HurtCooldownTime;
+
+    [Space(10)]
     [Header("Camera Toggles")]
     public CinemachineVirtualCamera VirtualCam;
     public float CameraFOV;
@@ -28,9 +35,17 @@ public class PlayerController : MonoBehaviour
     public float MaxCameraSpeed;
     public float MaxCameraDamping;
 
+    [Space(10)]
+    [Header("Visual Settings")]
+    public List<Material> HurtMaterials = new List<Material>();
+
     // Private variables
+    private int health;
+
     private bool isSpinning;
     private bool isSpinCooldown;
+
+    private bool isHurtCooldown;
     private bool isDead;
 
     private bool forwardInput;
@@ -40,12 +55,14 @@ public class PlayerController : MonoBehaviour
     // Object references
     private Collider2D col;
     private Rigidbody rb;
+    private MeshRenderer mesh;
     private Animator anim;
 
     private void Awake()
     {
         col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody>();
+        mesh = GetComponentInChildren<MeshRenderer>();
         anim = GetComponentInChildren<Animator>();
     }
 
@@ -63,6 +80,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        health = MaxHealth;
+        
         VirtualCam.GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = MaxCameraSpeed;
         VirtualCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = MaxCameraSpeed;
 
@@ -82,6 +101,44 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(SpinDelayTime);
         isSpinCooldown = false;
+    }
+
+    private IEnumerator HurtCooldown()
+    {
+        isHurtCooldown = true;
+        yield return new WaitForSeconds(HurtCooldownTime);
+        isHurtCooldown = false;
+    }
+
+    [ContextMenu("Hurt the squid")]
+    public void OnHurt(Vector3 knockbackSource)
+    {
+        if (!isHurtCooldown)
+        {
+            rb.AddForce((rb.position - knockbackSource).normalized * HurtKnockbackForce, ForceMode.Impulse);
+
+            health--;
+            if (health <= 0)
+            {
+                OnDeath();
+            }
+            else
+            {
+                // Player gets brief invincibility time
+                StartCoroutine(HurtCooldown());
+            }
+
+            if (HurtMaterials.Count != 0)
+            {
+                mesh.material = HurtMaterials[MaxHealth - health];
+            }
+        }
+    }
+
+    [ContextMenu("The squid is no more...")]
+    public void OnDeath()
+    {
+        isDead = true;
     }
 
     private void Update()
@@ -127,30 +184,27 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // Basic forwards and backwards movement
-        if (forwardInput || backwardInput)
+        if (!isDead)
         {
-            rb.rotation = Quaternion.Slerp(rb.rotation, VirtualCam.transform.rotation, Time.deltaTime / MaxRotationDamping);
+            if (forwardInput || backwardInput)
+            {
+                rb.rotation = Quaternion.Slerp(rb.rotation, VirtualCam.transform.rotation, Time.deltaTime / MaxRotationDamping);
 
-            if (isSpinning)
-            {
-                if (rb.velocity.sqrMagnitude <= MaxSpinSpeed)
+                if (isSpinning)
                 {
-                    rb.AddForce(transform.forward * MaxSpinAccel, ForceMode.Acceleration);
+                    if (rb.velocity.sqrMagnitude <= MaxSpinSpeed)
+                    {
+                        rb.AddForce(transform.forward * MaxSpinAccel, ForceMode.Acceleration);
+                    }
                 }
-            }
-            else
-            {
-                if (rb.velocity.sqrMagnitude <= MaxSpeed)
+                else
                 {
-                    rb.AddForce(transform.forward * (forwardInput ? 1 : backwardInput ? -1 : 0) * MaxAccel, ForceMode.Acceleration);
+                    if (rb.velocity.sqrMagnitude <= MaxSpeed)
+                    {
+                        rb.AddForce(transform.forward * (forwardInput ? 1 : backwardInput ? -1 : 0) * MaxAccel, ForceMode.Acceleration);
+                    }
                 }
             }
         }
     }
-
-    [ContextMenu("The squid is no more...")]
-    public void OnDeath()
-    {
-        isDead = true;
-    }    
 }
