@@ -24,26 +24,29 @@ public class PlayerController : MonoBehaviour
     public CinemachineVirtualCamera VirtualCam;
     public float CameraFOV;
     public float CameraSpinFOV;
+    public float CameraDeathDistance;
     public float MaxCameraSpeed;
     public float MaxCameraDamping;
 
     // Private variables
     private bool isSpinning;
     private bool isSpinCooldown;
+    private bool isDead;
 
     private bool forwardInput;
     private bool backwardInput;
     private bool spinInput;
 
     // Object references
+    private Collider2D col;
     private Rigidbody rb;
-
-    private Vector2 lastMousePos;
-    private Vector2 currentMousePos;
+    private Animator anim;
 
     private void Awake()
     {
+        col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void OnApplicationFocus(bool focus)
@@ -84,9 +87,12 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // Basic input
-        forwardInput = Input.GetKey(KeyCode.W) ? true : false;
-        backwardInput = Input.GetKey(KeyCode.S) ? true : false;
-        spinInput = Input.GetKeyDown(KeyCode.Space) ? true : false;
+        if (!isDead)
+        {
+            forwardInput = Input.GetKey(KeyCode.W) ? true : false;
+            backwardInput = Input.GetKey(KeyCode.S) ? true : false;
+            spinInput = Input.GetKeyDown(KeyCode.Space) ? true : false;
+        }
 
         if (spinInput && !backwardInput)
         {
@@ -97,8 +103,6 @@ public class PlayerController : MonoBehaviour
         }
 
         // Camera stuff
-        VirtualCam.enabled = Application.isFocused;
-
         if (isSpinning)
         {
             VirtualCam.m_Lens.FieldOfView = Mathf.Lerp(VirtualCam.m_Lens.FieldOfView, CameraSpinFOV, MaxCameraDamping);
@@ -107,6 +111,17 @@ public class PlayerController : MonoBehaviour
         {
             VirtualCam.m_Lens.FieldOfView = Mathf.Lerp(VirtualCam.m_Lens.FieldOfView, CameraFOV, MaxCameraDamping);
         }
+
+        if (isDead)
+        {
+            float distance = VirtualCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_CameraDistance;
+            VirtualCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_CameraDistance = 
+                Mathf.Lerp(distance, CameraDeathDistance, MaxCameraDamping);
+        }
+
+        // Animation updating
+        anim.SetBool("isMoving", forwardInput || backwardInput);
+        anim.SetBool("isSpinning", isSpinning);
     }
 
     void FixedUpdate()
@@ -114,7 +129,7 @@ public class PlayerController : MonoBehaviour
         // Basic forwards and backwards movement
         if (forwardInput || backwardInput)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, VirtualCam.transform.rotation, Time.deltaTime / MaxRotationDamping);
+            rb.rotation = Quaternion.Slerp(rb.rotation, VirtualCam.transform.rotation, Time.deltaTime / MaxRotationDamping);
 
             if (isSpinning)
             {
@@ -132,4 +147,10 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    [ContextMenu("The squid is no more...")]
+    public void OnDeath()
+    {
+        isDead = true;
+    }    
 }
