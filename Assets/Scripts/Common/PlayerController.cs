@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
     private Quaternion strafeRotation;
 
-    private bool isSpinning;
+    [HideInInspector] public bool isSpinning;
     private bool isSpinCooldown;
 
     private bool isHurtCooldown;

@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class mlem_spawner : MonoBehaviour
 {
-    [SerializeField] public int enemies = 0;
-    [SerializeField] public List<GameObject> enemies_obj;
-    [SerializeField] public GameObject enemy;
+    [SerializeField] public List<GameObject> enemies;
+    [HideInInspector] public List<GameObject> enemies_obj;
     [SerializeField] bool has_run = false;
     [SerializeField] GameObject player;
     [SerializeField] Vector3 spawnpos;
+
+    [Space(10)]
+    public float spawnDistance;
+    public float despawnDistance;
 
     private void Start()
     {
@@ -21,21 +24,19 @@ public class mlem_spawner : MonoBehaviour
     }
     void spawn()
     {
-        if (enemies <= 5 && !has_run)
+        if (enemies_obj.Count <= 5 && !has_run)
         {
             //instantiates a new enemy and adds it to a list
-            GameObject new_enemy = Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity);
+            GameObject new_enemy = Instantiate(enemies[Random.Range(0, enemies.Count - 1)], new Vector3(0, 0, 0), Quaternion.identity);
             enemies_obj.Add(new_enemy);
             //sets the spawner parent to the current spawner
-            new_enemy.GetComponent<Enemy>().spawner = gameObject;
             //randomizes the spawner based on the players location
-            spawnpos = new Vector3(player.transform.position.x + Random.Range(-10.0f, 10.0f), player.transform.position.y + Random.Range(-10.0f, 10.0f), player.transform.position.z + Random.Range(-10.0f, 10.0f));
+            spawnpos = new Vector3(player.transform.position.x + Random.Range(-spawnDistance, spawnDistance), player.transform.position.y + Random.Range(-spawnDistance, spawnDistance), player.transform.position.z + Random.Range(-spawnDistance, spawnDistance));
             new_enemy.transform.position = spawnpos;
-            enemies++;
             Debug.Log("woo");
         }
         //only allows the spawner to run once(if removed it will spam spawn infinitely, add a timer cooldown for spawning????
-        if (enemies >= 5)
+        if (enemies_obj.Count >= 5)
         {
             has_run = true;
         }
