@@ -194,7 +194,10 @@ public class PlayerController : MonoBehaviour
             if (forwardInput || backwardInput)
             {
                 strafeRotation.eulerAngles = VirtualCam.transform.forward + new Vector3(0, MaxStrafeRotation * strafeInput, 0);
-                rb.rotation = Quaternion.Slerp(rb.rotation, VirtualCam.transform.rotation * strafeRotation, Time.deltaTime / MaxRotationDamping);
+                rb.rotation = Quaternion.Slerp(
+                        rb.rotation,
+                        VirtualCam.transform.rotation * strafeRotation,
+                        Time.deltaTime / MaxRotationDamping);
 
                 if (isSpinning)
                 {

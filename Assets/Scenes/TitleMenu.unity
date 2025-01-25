@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 206470016}
   - component: {fileID: 206470015}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TitleLogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Aquatic Side-Eye
+  m_text: BobaQuarium
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 614c06ad6c235f747aafe0f647291210, type: 2}
   m_sharedMaterial: {fileID: 4392797609184220535, guid: 614c06ad6c235f747aafe0f647291210, type: 2}
