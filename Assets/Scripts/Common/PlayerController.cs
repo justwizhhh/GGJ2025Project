@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public float MaxSpinTime;
     public float SpinDelayTime;
     public float MaxRotationDamping;
+    public float MaxStrafeRotation;
 
     [Space(10)]
     [Header("Hurt/death Settings")]
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour
     // Private variables
     private int health;
 
+    private Quaternion strafeRotation;
+
     private bool isSpinning;
     private bool isSpinCooldown;
 
@@ -50,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
     private bool forwardInput;
     private bool backwardInput;
+    private int strafeInput;
     private bool spinInput;
 
     // Object references
@@ -111,10 +115,12 @@ public class PlayerController : MonoBehaviour
     }
 
     [ContextMenu("Hurt the squid")]
-    public void OnHurt(bool knockback, Vector3 knockbackSource)
+    public void OnHurt(Vector3 knockbackSource)
     {
         if (!isHurtCooldown)
         {
+            rb.AddForce((rb.position - knockbackSource).normalized * HurtKnockbackForce, ForceMode.Impulse);
+
             health--;
             if (health <= 0)
             {
@@ -124,12 +130,6 @@ public class PlayerController : MonoBehaviour
             {
                 // Player gets brief invincibility time
                 StartCoroutine(HurtCooldown());
-            }
-
-            // Not all obstacles will give the player knockback probably
-            if (knockback)
-            {
-                rb.AddForce((rb.position - knockbackSource).normalized * HurtKnockbackForce, ForceMode.Impulse);
             }
 
             if (HurtMaterials.Count != 0)
@@ -152,6 +152,7 @@ public class PlayerController : MonoBehaviour
         {
             forwardInput = Input.GetKey(KeyCode.W) ? true : false;
             backwardInput = Input.GetKey(KeyCode.S) ? true : false;
+            strafeInput = Input.GetKey(KeyCode.A) ? -1 : Input.GetKey(KeyCode.D) ? 1 : 0;
             spinInput = Input.GetKeyDown(KeyCode.Space) ? true : false;
         }
 
@@ -192,7 +193,8 @@ public class PlayerController : MonoBehaviour
         {
             if (forwardInput || backwardInput)
             {
-                rb.rotation = Quaternion.Slerp(rb.rotation, VirtualCam.transform.rotation, Time.deltaTime / MaxRotationDamping);
+                strafeRotation.eulerAngles = VirtualCam.transform.forward + new Vector3(0, MaxStrafeRotation * strafeInput, 0);
+                rb.rotation = Quaternion.Slerp(rb.rotation, VirtualCam.transform.rotation * strafeRotation, Time.deltaTime / MaxRotationDamping);
 
                 if (isSpinning)
                 {
