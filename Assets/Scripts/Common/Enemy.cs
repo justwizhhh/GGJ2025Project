@@ -16,9 +16,9 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider collision)
     {
-        if (collision.collider.TryGetComponent<PlayerController>(out PlayerController player))
+        if (collision.TryGetComponent<PlayerController>(out PlayerController player))
         {
             player.OnHurt(transform.position);
         }

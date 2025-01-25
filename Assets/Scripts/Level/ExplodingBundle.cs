@@ -30,8 +30,12 @@ public class ExplodingBundle : MonoBehaviour
             foreach (Rigidbody obj in objects)
             {
                 obj.isKinematic = false;
+            }
+
+            foreach (Rigidbody obj in objects)
+            {
                 obj.AddForce(
-                    (obj.position - transform.position).normalized * Random.Range(MinExplosionForce, MaxExplosionForce), 
+                    (obj.position - transform.position).normalized * Random.Range(MinExplosionForce, MaxExplosionForce),
                     ForceMode.Impulse);
             }
         }
