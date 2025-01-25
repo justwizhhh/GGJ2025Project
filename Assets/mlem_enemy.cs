@@ -62,5 +62,4 @@ public class mlem_enemy : MonoBehaviour
     {
         health -= 50;
     }
-    
 }

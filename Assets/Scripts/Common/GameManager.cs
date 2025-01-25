@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     [Header("Global Variables")]
     public int Score;
+
+    // todo, find all tapiocas
     
     public static GameManager Instance;
 

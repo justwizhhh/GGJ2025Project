@@ -27,7 +27,7 @@ public class mlem_spawner : MonoBehaviour
             GameObject new_enemy = Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity);
             enemies_obj.Add(new_enemy);
             //sets the spawner parent to the current spawner
-            new_enemy.GetComponent<mlem_enemy>().spawner = gameObject;
+            new_enemy.GetComponent<Enemy>().spawner = gameObject;
             //randomizes the spawner based on the players location
             spawnpos = new Vector3(player.transform.position.x + Random.Range(-10.0f, 10.0f), player.transform.position.y + Random.Range(-10.0f, 10.0f), player.transform.position.z + Random.Range(-10.0f, 10.0f));
             new_enemy.transform.position = spawnpos;
