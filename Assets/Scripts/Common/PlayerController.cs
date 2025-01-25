@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
 
     // Object references
     private Rigidbody rb;
-    private Camera cam;
     private CinemachineVirtualCamera virtualCam;
 
     private Vector2 lastMousePos;
@@ -33,7 +32,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        cam = Camera.main;
         virtualCam = FindFirstObjectByType<CinemachineVirtualCamera>();
     }
 
