@@ -41,8 +41,8 @@ public class Collectible : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameObject.SetActive(false);
             GameManager.Instance.UpdateScore();
+            Destroy(gameObject);
         }
     }
 

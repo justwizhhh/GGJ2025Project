@@ -47,14 +47,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 937d53974ce774c49a2dc29e20189d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxAccel: 2
-  MaxSpeed: 15
-  MaxSpinAccel: 4
-  MaxSpinSpeed: 20
+  MaxAccel: 4
+  MaxSpeed: 45
+  MaxSpinAccel: 12
+  MaxSpinSpeed: 70
   MaxSpinTime: 0.65
-  SpinDelayTime: 0.2
+  SpinDelayTime: 0.35
   MaxRotationDamping: 0.1
-  MaxHealth: 1
+  MaxStrafeRotation: 30
+  MaxHealth: 3
   HurtKnockbackForce: 5.5
   HurtCooldownTime: 2
   VirtualCam: {fileID: 0}
@@ -64,6 +65,7 @@ MonoBehaviour:
   MaxCameraSpeed: 450
   MaxCameraDamping: 0.01
   HurtMaterials: []
+  isSpinning: 0
 --- !u!136 &8650406977018424524
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -83,10 +85,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Radius: 0.45
+  m_Height: 2.2
+  m_Direction: 2
+  m_Center: {x: 0.000000059604645, y: -0.37, z: -0.00000008940697}
 --- !u!54 &2378730457848817666
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,7 +127,6 @@ GameObject:
   - component: {fileID: 5738380976109900500}
   - component: {fileID: 3453630453312399178}
   - component: {fileID: 4200453431465476811}
-  - component: {fileID: 6317129272064121938}
   - component: {fileID: 1703181889392653954}
   m_Layer: 0
   m_Name: Cylinder
@@ -201,29 +202,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6317129272064121938
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4628474548814303559}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!95 &1703181889392653954
 Animator:
   serializedVersion: 7

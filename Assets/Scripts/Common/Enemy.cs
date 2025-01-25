@@ -6,14 +6,15 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     // Base class for all harmful obstacles in the game
-    [SerializeField] public GameObject spawner;
-    [SerializeField] int health = 100;
+    [SerializeField] public mlem_spawner spawner;
     [SerializeField] GameObject player;
     [SerializeField] bool can_despawn;
-    [SerializeField] Collider despawn_radius;
     [SerializeField] Collider attack_radius;
     // Start is called before the first frame update
+    private float initialDespawnTimer;
     [SerializeField] float despawn_timer = 1000.0f;
+
+    private float playerDistance;
 
     [Space(10)]
     [Header("Dom's Code")]
@@ -21,28 +22,32 @@ public class Enemy : MonoBehaviour
 
 
     // Object references
-    private Collider col;
-    private Rigidbody rb;
+    protected Collider col;
+    protected Rigidbody rb;
+    protected MeshRenderer mesh;
 
     private void Awake()
     {
         col = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
+        mesh = GetComponentInChildren<MeshRenderer>();
     }
-    private void Start()
+    public virtual void Start()
     {
-        despawn_timer = 10.0f;
-        despawn_timer = Random.Range(12.0f, 32.0f);
-        player = GameObject.FindWithTag("Player");
+        spawner = FindFirstObjectByType<mlem_spawner>();
+        initialDespawnTimer = Random.Range(12.0f, 32.0f);
+        despawn_timer = initialDespawnTimer;
+        player = FindFirstObjectByType<PlayerController>().gameObject;
     }
 
     void Update()
     {
+        //calculates distance between player and enemies
+        playerDistance = Vector3.Distance(player.transform.position, rb.position);
+
         //checks if the enemy has no health left or despawn timer
-        if (health <= 0 || despawn_timer <= 0.0f)
+        if (despawn_timer <= 0.0f)
         {
-            spawner.GetComponent<mlem_spawner>().enemies_obj.RemoveAll(item => item == null); ;
-            spawner.GetComponent<mlem_spawner>().enemies--;
             Destroy(gameObject);
         }
         detection();
@@ -50,23 +55,22 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //calculates distance between player and enemies
-        float distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
-        //Debug.Log(distance);
         //checks if out of range and slowly despawns
-        if (distance >= 12.1f)
+        if (playerDistance >= spawner.despawnDistance)
         {
             can_despawn = true;
+            despawn_timer = initialDespawnTimer;
         }
-        //checks if in range to home towards the player
-        if (distance <= 12.0f)
+        else
         {
             movement();
+            can_despawn = false;
+
         }
     }
 
     //moves towards the player
-    void movement()
+    public virtual void movement()
     {
         rb.position = Vector3.MoveTowards(rb.position, player.transform.position, MoveSpeed * Time.deltaTime);
     }
@@ -75,16 +79,11 @@ public class Enemy : MonoBehaviour
         //removes from despawn timer to slowly kill the enemy
         if (can_despawn)
         {
-            despawn_timer -= (1.0f * Time.fixedDeltaTime);
+            despawn_timer -= Time.deltaTime;
         }
     }
-    //damage variable for the player to hit
-    void take_damage()
-    {
-        health -= 50;
-    }
 
-    private void OnTriggerStay(Collider collision)
+    public void OnTriggerStay(Collider collision)
     {
         if (collision.TryGetComponent<PlayerController>(out PlayerController player))
         {
