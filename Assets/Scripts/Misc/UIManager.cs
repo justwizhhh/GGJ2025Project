@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.Collections.LowLevel.Unsafe;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public TMP_Text ScoreText;
+    public List<RawImage> HealthImages = new List<RawImage>();
+    public Texture2D BrokenHeartImg;
 
     private int maxScore;
     private bool deathAnimPlayed;
@@ -34,6 +37,12 @@ public class UIManager : MonoBehaviour
         {
             ScoreText.text = newValue.ToString() + "/" + maxScore.ToString();
         }
+    }
+
+    public void UpdateHealth(int newHealth)
+    {
+        HealthImages[newHealth].texture = BrokenHeartImg;
+        anim.SetTrigger("ShowHealth");
     }
 
     public void PlayDeathAnim()

@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private MeshRenderer mesh;
     private Animator anim;
+    private UIManager uiManager;
 
     private void Awake()
     {
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         mesh = GetComponentInChildren<MeshRenderer>();
         anim = GetComponentInChildren<Animator>();
+        uiManager = FindFirstObjectByType<UIManager>();
     }
 
     private void OnApplicationFocus(bool focus)
@@ -141,6 +143,8 @@ public class PlayerController : MonoBehaviour
                 {
                     mesh.material = HurtMaterials[MaxHealth - health];
                 }
+
+                uiManager.UpdateHealth(health);
             }
         }
     }
