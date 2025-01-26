@@ -119,6 +119,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &66642176
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ac5859cfb2f406340b4840fc1c950b59, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ac5859cfb2f406340b4840fc1c950b59, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ac5859cfb2f406340b4840fc1c950b59, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ac5859cfb2f406340b4840fc1c950b59, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ac5859cfb2f406340b4840fc1c950b59, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ac5859cfb2f406340b4840fc1c950b59, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ac5859cfb2f406340b4840fc1c950b59, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ac5859cfb2f406340b4840fc1c950b59, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ac5859cfb2f406340b4840fc1c950b59, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ac5859cfb2f406340b4840fc1c950b59, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ac5859cfb2f406340b4840fc1c950b59, type: 3}
+      propertyPath: m_Name
+      value: octo_MODEL
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: ac5859cfb2f406340b4840fc1c950b59, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5a69d38f25f32264da4ed45357eb1843, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ac5859cfb2f406340b4840fc1c950b59, type: 3}
 --- !u!1 &125994734
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,6 +872,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stingray
       objectReference: {fileID: 0}
+    - target: {fileID: 8939752361434977925, guid: bebcdd00bd87f384aa58586a6f7622fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -827,6 +892,10 @@ PrefabInstance:
     - target: {fileID: 6321320067129495860, guid: 2640c2a8826c21f4998837380d287f71, type: 3}
       propertyPath: m_Name
       value: BigFishANIM
+      objectReference: {fileID: 0}
+    - target: {fileID: 6321320067129495860, guid: 2640c2a8826c21f4998837380d287f71, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6697424080066120590, guid: 2640c2a8826c21f4998837380d287f71, type: 3}
       propertyPath: m_LocalPosition.x
@@ -925,6 +994,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PufferfishPufferfish
       objectReference: {fileID: 0}
+    - target: {fileID: 4336430645536210043, guid: e4ea65aecb7b68a40a9ffe6db9a0a4da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -941,6 +1014,10 @@ PrefabInstance:
     - target: {fileID: 8227164162341435628, guid: f18ad51f8a2e01140a3f71f36efe21d9, type: 3}
       propertyPath: m_Name
       value: Small_fishsmall_fish_SWIM
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227164162341435628, guid: f18ad51f8a2e01140a3f71f36efe21d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8747981261468803670, guid: f18ad51f8a2e01140a3f71f36efe21d9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -998,6 +1075,10 @@ PrefabInstance:
     - target: {fileID: 6212919359130914597, guid: afd061528e408524f968326efbf6b851, type: 3}
       propertyPath: m_Name
       value: clam_open
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212919359130914597, guid: afd061528e408524f968326efbf6b851, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6733841942587970975, guid: afd061528e408524f968326efbf6b851, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1121,3 +1202,4 @@ SceneRoots:
   - {fileID: 3345464049183244626}
   - {fileID: 4071165633780603203}
   - {fileID: 5512182702383441496}
+  - {fileID: 66642176}
