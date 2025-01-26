@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxScore: 100
+  EndTransitionTime: 0
   Score: 0

@@ -13,7 +13,6 @@ public class TitleMenu : MonoBehaviour
     {
         Null,
         StartGame,
-        Options,
         Credits,
         Exit
     }
@@ -50,7 +49,7 @@ public class TitleMenu : MonoBehaviour
         {
             case TitleSection.Null: // If nothing has been selected on the titlescreen yet
                 menuOption += Input.GetKeyDown(KeyCode.S) ? 1 : Input.GetKeyDown(KeyCode.W) ? -1 : 0;
-                menuOption = Mathf.Clamp(menuOption, 0, 3);
+                menuOption = Mathf.Clamp(menuOption, 0, 2);
 
                 // Selecting each menu options one-by-one
                 if (Input.GetKeyDown(KeyCode.Return))
@@ -62,17 +61,11 @@ public class TitleMenu : MonoBehaviour
                             SceneManager.LoadScene(2);
                             break;
                         case 1:
-                            currentTitleSection = TitleSection.Options;
-                            MainMenuUI.SetActive(false);
-                            OptionsUI.SetActive(true);
-                            menuOption = 0;
-                            break;
-                        case 2:
                             currentTitleSection = TitleSection.Credits;
                             MainMenuUI.SetActive(false);
                             CreditsUI.SetActive(true);
                             break;
-                        case 3:
+                        case 2:
                             Application.Quit();
                             break;
                     }
@@ -85,44 +78,6 @@ public class TitleMenu : MonoBehaviour
             case TitleSection.StartGame:
                 // Starts the game
 
-                break;
-
-            case TitleSection.Options: // Changing music and sound volumes
-                menuOption += Input.GetKeyDown(KeyCode.S) ? 1 : Input.GetKeyDown(KeyCode.W) ? -1 : 0;
-                menuOption = Mathf.Clamp(menuOption, 0, 1);
-
-                // Choosing between music/sound volume toggles
-                if (menuOption == 0)
-                {
-                    AudioManager.instance.MusicVolume = Mathf.Clamp(AudioManager.instance.MusicVolume, 0, 1);
-                    AudioManager.instance.MusicVolume += 
-                        Input.GetKeyDown(KeyCode.D) ? 0.1f : 
-                        Input.GetKeyDown(KeyCode.A) ? -0.1f : 0;
-
-                    OptionsUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = 
-                        "Music Volume - " + (Mathf.RoundToInt(AudioManager.instance.MusicVolume * 100)).ToString() + "%";
-                }
-                else
-                {
-                    AudioManager.instance.SoundVolume = Mathf.Clamp(AudioManager.instance.SoundVolume, 0, 1);
-                    AudioManager.instance.SoundVolume += 
-                        Input.GetKeyDown(KeyCode.D) ? 0.1f : 
-                        Input.GetKeyDown(KeyCode.A) ? -0.1f : 0;
-
-                    OptionsUI.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = 
-                        "Sound Volume - " + (Mathf.RoundToInt(AudioManager.instance.SoundVolume * 100)).ToString() + "%";
-                }
-
-                // Going back to the main menu
-                if (Input.GetKeyDown(KeyCode.Z))
-                {
-                    currentTitleSection = TitleSection.Null;
-                    OptionsUI.SetActive(false);
-                    MainMenuUI.SetActive(true);
-                }
-
-                cam.transform.position = OptionsCamPosition;
-                currentCursorPos = OptionsUI.transform.GetChild(menuOption).GetComponent<TextMeshProUGUI>();
                 break;
 
             case TitleSection.Credits:

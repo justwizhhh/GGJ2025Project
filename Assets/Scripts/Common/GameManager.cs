@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         uiManager.InitScore(MaxScore);
+        AudioManager.instance.PlayMusic("GGJ2025ProjectMusic", 1);
     }
 
     private void Update()
