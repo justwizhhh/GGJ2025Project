@@ -478,7 +478,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251463336}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -533,9 +533,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.1463736, y: -0.021758165, z: -0.14541377, w: 0.9782414}
   m_LocalPosition: {x: -25.52, y: 0, z: -25.5}
-  m_LocalScale: {x: 19.3, y: 16.8, z: 19.3}
+  m_LocalScale: {x: 19.3, y: 19.3, z: 19.3}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1907474742}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -17.02, y: 109.69697, z: -16.91}
 --- !u!111 &251463341
@@ -2468,6 +2469,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836279797}
   m_CullTransparentMesh: 1
+--- !u!1001 &1907474741
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 251463340}
+    m_Modifications:
+    - target: {fileID: 2985584940829090144, guid: 8eae382606849c3479b44a0daa7387dc, type: 3}
+      propertyPath: m_Name
+      value: Boba_Cup
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104425210655957233, guid: 8eae382606849c3479b44a0daa7387dc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104425210655957233, guid: 8eae382606849c3479b44a0daa7387dc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104425210655957233, guid: 8eae382606849c3479b44a0daa7387dc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104425210655957233, guid: 8eae382606849c3479b44a0daa7387dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104425210655957233, guid: 8eae382606849c3479b44a0daa7387dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104425210655957233, guid: 8eae382606849c3479b44a0daa7387dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104425210655957233, guid: 8eae382606849c3479b44a0daa7387dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104425210655957233, guid: 8eae382606849c3479b44a0daa7387dc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8eae382606849c3479b44a0daa7387dc, type: 3}
+--- !u!4 &1907474742 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5104425210655957233, guid: 8eae382606849c3479b44a0daa7387dc, type: 3}
+  m_PrefabInstance: {fileID: 1907474741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2037304307
 GameObject:
   m_ObjectHideFlags: 0
