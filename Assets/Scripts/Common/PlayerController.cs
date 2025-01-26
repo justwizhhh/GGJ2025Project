@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
                 health--;
                 if (health <= 0)
                 {
-                    anim.SetBool("isDead", isDead);
+                    anim.SetBool("isDead", true);
                     OnDeath();
                 }
                 else
