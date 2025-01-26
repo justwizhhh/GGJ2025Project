@@ -49,11 +49,11 @@ public class TitleMenu : MonoBehaviour
         switch (currentTitleSection)
         {
             case TitleSection.Null: // If nothing has been selected on the titlescreen yet
-                menuOption += Input.GetKeyDown(KeyCode.DownArrow) ? 1 : Input.GetKeyDown(KeyCode.UpArrow) ? -1 : 0;
+                menuOption += Input.GetKeyDown(KeyCode.S) ? 1 : Input.GetKeyDown(KeyCode.W) ? -1 : 0;
                 menuOption = Mathf.Clamp(menuOption, 0, 3);
 
                 // Selecting each menu options one-by-one
-                if (Input.GetKeyDown(KeyCode.X))
+                if (Input.GetKeyDown(KeyCode.Return))
                 {
                     switch (menuOption)
                     {
@@ -88,7 +88,7 @@ public class TitleMenu : MonoBehaviour
                 break;
 
             case TitleSection.Options: // Changing music and sound volumes
-                menuOption += Input.GetKeyDown(KeyCode.DownArrow) ? 1 : Input.GetKeyDown(KeyCode.UpArrow) ? -1 : 0;
+                menuOption += Input.GetKeyDown(KeyCode.S) ? 1 : Input.GetKeyDown(KeyCode.W) ? -1 : 0;
                 menuOption = Mathf.Clamp(menuOption, 0, 1);
 
                 // Choosing between music/sound volume toggles
@@ -96,8 +96,8 @@ public class TitleMenu : MonoBehaviour
                 {
                     AudioManager.instance.MusicVolume = Mathf.Clamp(AudioManager.instance.MusicVolume, 0, 1);
                     AudioManager.instance.MusicVolume += 
-                        Input.GetKeyDown(KeyCode.RightArrow) ? 0.1f : 
-                        Input.GetKeyDown(KeyCode.LeftArrow) ? -0.1f : 0;
+                        Input.GetKeyDown(KeyCode.D) ? 0.1f : 
+                        Input.GetKeyDown(KeyCode.A) ? -0.1f : 0;
 
                     OptionsUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = 
                         "Music Volume - " + (Mathf.RoundToInt(AudioManager.instance.MusicVolume * 100)).ToString() + "%";
@@ -106,8 +106,8 @@ public class TitleMenu : MonoBehaviour
                 {
                     AudioManager.instance.SoundVolume = Mathf.Clamp(AudioManager.instance.SoundVolume, 0, 1);
                     AudioManager.instance.SoundVolume += 
-                        Input.GetKeyDown(KeyCode.RightArrow) ? 0.1f : 
-                        Input.GetKeyDown(KeyCode.LeftArrow) ? -0.1f : 0;
+                        Input.GetKeyDown(KeyCode.D) ? 0.1f : 
+                        Input.GetKeyDown(KeyCode.A) ? -0.1f : 0;
 
                     OptionsUI.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = 
                         "Sound Volume - " + (Mathf.RoundToInt(AudioManager.instance.SoundVolume * 100)).ToString() + "%";
@@ -128,7 +128,7 @@ public class TitleMenu : MonoBehaviour
             case TitleSection.Credits:
 
                 // Going back to the main menu
-                if (Input.GetKeyDown(KeyCode.Z))
+                if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     currentTitleSection = TitleSection.Null;
                     CreditsUI.SetActive(false);
@@ -138,13 +138,17 @@ public class TitleMenu : MonoBehaviour
                 cam.transform.position = CreditsCamPosition;
                 currentCursorPos = CreditsUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
                 break;
+
+            case TitleSection.Exit:
+                Application.Quit();
+                break;
         }
 
         // Moving the cursor object around, depending on what part of the menu is being selected currently
         if (currentCursorPos != null) 
-        { 
-            MenuCursor.transform.localPosition = currentCursorPos.transform.localPosition 
-                + new Vector3(-currentCursorPos.rectTransform.rect.width / 2 - MenuCursor.GetComponent<RectTransform>().rect.width, 0, 0); 
+        {
+            MenuCursor.transform.position = currentCursorPos.transform.position;
+            MenuCursor.GetComponent<RectTransform>().sizeDelta = new Vector2(currentCursorPos.rectTransform.rect.width + 40, 0);
         }
     }
 }

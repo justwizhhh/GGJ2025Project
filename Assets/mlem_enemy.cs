@@ -26,7 +26,6 @@ public class mlem_enemy : MonoBehaviour
         if (health <= 0 || despawn_timer <= 0.0f) 
         {
             spawner.GetComponent<mlem_spawner>().enemies_obj.RemoveAll(item => item == null); ;
-            spawner.GetComponent<mlem_spawner>().enemies--;
             Destroy(gameObject);
         }
         detection();
@@ -62,5 +61,4 @@ public class mlem_enemy : MonoBehaviour
     {
         health -= 50;
     }
-    
 }

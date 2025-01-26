@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public float MaxSpinTime;
     public float SpinDelayTime;
     public float MaxRotationDamping;
+    public float MaxStrafeRotation;
 
     [Space(10)]
     [Header("Hurt/death Settings")]
@@ -42,21 +44,27 @@ public class PlayerController : MonoBehaviour
     // Private variables
     private int health;
 
-    private bool isSpinning;
+    private Quaternion strafeRotation;
+
+    [HideInInspector] public bool isSpinning;
     private bool isSpinCooldown;
 
     private bool isHurtCooldown;
-    private bool isDead;
+    public bool isDead;
+    public bool isInvincible;
 
     private bool forwardInput;
     private bool backwardInput;
+    private int strafeInput;
     private bool spinInput;
+    private bool restartInput;
 
     // Object references
     private Collider2D col;
     private Rigidbody rb;
     private MeshRenderer mesh;
     private Animator anim;
+    private UIManager uiManager;
 
     private void Awake()
     {
@@ -64,6 +72,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         mesh = GetComponentInChildren<MeshRenderer>();
         anim = GetComponentInChildren<Animator>();
+        uiManager = FindFirstObjectByType<UIManager>();
     }
 
     private void OnApplicationFocus(bool focus)
@@ -111,30 +120,30 @@ public class PlayerController : MonoBehaviour
     }
 
     [ContextMenu("Hurt the squid")]
-    public void OnHurt(bool knockback, Vector3 knockbackSource)
+    public void OnHurt(Vector3 knockbackSource)
     {
-        if (!isHurtCooldown)
+        if (!isInvincible)
         {
-            health--;
-            if (health <= 0)
-            {
-                OnDeath();
-            }
-            else
-            {
-                // Player gets brief invincibility time
-                StartCoroutine(HurtCooldown());
-            }
-
-            // Not all obstacles will give the player knockback probably
-            if (knockback)
+            if (!isHurtCooldown)
             {
                 rb.AddForce((rb.position - knockbackSource).normalized * HurtKnockbackForce, ForceMode.Impulse);
-            }
 
-            if (HurtMaterials.Count != 0)
-            {
-                mesh.material = HurtMaterials[MaxHealth - health];
+                health--;
+                if (health <= 0)
+                {
+                    OnDeath();
+                }
+                else
+                {
+                    // Player gets brief invincibility time
+                    StartCoroutine(HurtCooldown());
+                    uiManager.UpdateHealth(health);
+                }
+
+                if (HurtMaterials.Count != 0)
+                {
+                    mesh.material = HurtMaterials[MaxHealth - health];
+                }
             }
         }
     }
@@ -152,7 +161,12 @@ public class PlayerController : MonoBehaviour
         {
             forwardInput = Input.GetKey(KeyCode.W) ? true : false;
             backwardInput = Input.GetKey(KeyCode.S) ? true : false;
+            strafeInput = Input.GetKey(KeyCode.A) ? -1 : Input.GetKey(KeyCode.D) ? 1 : 0;
             spinInput = Input.GetKeyDown(KeyCode.Space) ? true : false;
+        }
+        else
+        {
+            restartInput = Input.GetKeyDown(KeyCode.Return) ? true : false;
         }
 
         if (spinInput && !backwardInput)
@@ -183,6 +197,12 @@ public class PlayerController : MonoBehaviour
         // Animation updating
         anim.SetBool("isMoving", forwardInput || backwardInput);
         anim.SetBool("isSpinning", isSpinning);
+
+        // Respawning when the player dies
+        if (restartInput)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     void FixedUpdate()
@@ -192,7 +212,11 @@ public class PlayerController : MonoBehaviour
         {
             if (forwardInput || backwardInput)
             {
-                rb.rotation = Quaternion.Slerp(rb.rotation, VirtualCam.transform.rotation, Time.deltaTime / MaxRotationDamping);
+                strafeRotation.eulerAngles = VirtualCam.transform.forward + new Vector3(0, MaxStrafeRotation * strafeInput, 0);
+                rb.rotation = Quaternion.Slerp(
+                        rb.rotation,
+                        VirtualCam.transform.rotation * strafeRotation,
+                        Time.deltaTime / MaxRotationDamping);
 
                 if (isSpinning)
                 {
