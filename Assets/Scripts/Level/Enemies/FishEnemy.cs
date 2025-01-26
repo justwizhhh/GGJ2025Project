@@ -21,8 +21,8 @@ public class FishEnemy : Enemy
         if (FishModels.Count > 0 )
         {
             Destroy(transform.GetChild(0).gameObject);
-            int modelId = Random.Range(0, FishModels.Count - 1);
-            Instantiate(FishModels[modelId], Vector3.zero, Quaternion.Euler(0, 90, 0), transform);
+            int modelId = Random.Range(0, FishModels.Count);
+            Instantiate(FishModels[modelId], transform.localPosition, Quaternion.Euler(0, -90, 0), transform).transform.localPosition = Vector3.zero;
         }
     }
 
