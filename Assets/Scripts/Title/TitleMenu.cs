@@ -147,7 +147,7 @@ public class TitleMenu : MonoBehaviour
         // Moving the cursor object around, depending on what part of the menu is being selected currently
         if (currentCursorPos != null) 
         {
-            MenuCursor.transform.localPosition = currentCursorPos.transform.localPosition;
+            MenuCursor.transform.position = currentCursorPos.transform.position;
             MenuCursor.GetComponent<RectTransform>().sizeDelta = new Vector2(currentCursorPos.rectTransform.rect.width + 40, 0);
         }
     }

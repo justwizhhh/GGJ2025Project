@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -49,18 +50,21 @@ public class PlayerController : MonoBehaviour
     private bool isSpinCooldown;
 
     private bool isHurtCooldown;
-    private bool isDead;
+    public bool isDead;
+    public bool isInvincible;
 
     private bool forwardInput;
     private bool backwardInput;
     private int strafeInput;
     private bool spinInput;
+    private bool restartInput;
 
     // Object references
     private Collider2D col;
     private Rigidbody rb;
     private MeshRenderer mesh;
     private Animator anim;
+    private UIManager uiManager;
 
     private void Awake()
     {
@@ -68,6 +72,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         mesh = GetComponentInChildren<MeshRenderer>();
         anim = GetComponentInChildren<Animator>();
+        uiManager = FindFirstObjectByType<UIManager>();
     }
 
     private void OnApplicationFocus(bool focus)
@@ -117,24 +122,29 @@ public class PlayerController : MonoBehaviour
     [ContextMenu("Hurt the squid")]
     public void OnHurt(Vector3 knockbackSource)
     {
-        if (!isHurtCooldown)
+        if (!isInvincible)
         {
-            rb.AddForce((rb.position - knockbackSource).normalized * HurtKnockbackForce, ForceMode.Impulse);
+            if (!isHurtCooldown)
+            {
+                rb.AddForce((rb.position - knockbackSource).normalized * HurtKnockbackForce, ForceMode.Impulse);
 
-            health--;
-            if (health <= 0)
-            {
-                OnDeath();
-            }
-            else
-            {
-                // Player gets brief invincibility time
-                StartCoroutine(HurtCooldown());
-            }
+                health--;
+                if (health <= 0)
+                {
+                    OnDeath();
+                }
+                else
+                {
+                    // Player gets brief invincibility time
+                    StartCoroutine(HurtCooldown());
+                }
 
-            if (HurtMaterials.Count != 0)
-            {
-                mesh.material = HurtMaterials[MaxHealth - health];
+                if (HurtMaterials.Count != 0)
+                {
+                    mesh.material = HurtMaterials[MaxHealth - health];
+                }
+
+                uiManager.UpdateHealth(health);
             }
         }
     }
@@ -154,6 +164,10 @@ public class PlayerController : MonoBehaviour
             backwardInput = Input.GetKey(KeyCode.S) ? true : false;
             strafeInput = Input.GetKey(KeyCode.A) ? -1 : Input.GetKey(KeyCode.D) ? 1 : 0;
             spinInput = Input.GetKeyDown(KeyCode.Space) ? true : false;
+        }
+        else
+        {
+            restartInput = Input.GetKeyDown(KeyCode.Return) ? true : false;
         }
 
         if (spinInput && !backwardInput)
@@ -184,6 +198,12 @@ public class PlayerController : MonoBehaviour
         // Animation updating
         anim.SetBool("isMoving", forwardInput || backwardInput);
         anim.SetBool("isSpinning", isSpinning);
+
+        // Respawning when the player dies
+        if (restartInput)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     void FixedUpdate()
@@ -194,7 +214,10 @@ public class PlayerController : MonoBehaviour
             if (forwardInput || backwardInput)
             {
                 strafeRotation.eulerAngles = VirtualCam.transform.forward + new Vector3(0, MaxStrafeRotation * strafeInput, 0);
-                rb.rotation = Quaternion.Slerp(rb.rotation, VirtualCam.transform.rotation * strafeRotation, Time.deltaTime / MaxRotationDamping);
+                rb.rotation = Quaternion.Slerp(
+                        rb.rotation,
+                        VirtualCam.transform.rotation * strafeRotation,
+                        Time.deltaTime / MaxRotationDamping);
 
                 if (isSpinning)
                 {
