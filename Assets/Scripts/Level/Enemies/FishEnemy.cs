@@ -11,10 +11,19 @@ public class FishEnemy : Enemy
     [Space(10)]
     public GameObject Tapioca;
 
+    public List<GameObject> FishModels = new List<GameObject>();
+
     public override void Start()
     {
         base.Start();
         rb.rotation = Quaternion.Euler(Random.Range(MinXRot, MaxXRot), Random.Range(-180, 180), 0);
+
+        if (FishModels.Count > 0 )
+        {
+            Destroy(transform.GetChild(0).gameObject);
+            int modelId = Random.Range(0, FishModels.Count - 1);
+            Instantiate(FishModels[modelId], Vector3.zero, Quaternion.Euler(0, 90, 0), transform);
+        }
     }
 
     public override void movement()
