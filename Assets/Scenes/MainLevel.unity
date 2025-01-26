@@ -176,63 +176,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11a1de52375f0474aa3452cb228dd0a8, type: 3}
---- !u!1001 &104923150
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 568939023635807245, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_Name
-      value: Tapioca (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 43.578457
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 36.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -106.50157
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
 --- !u!1001 &136220561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -565,63 +508,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &334076668
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 568939023635807245, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_Name
-      value: Tapioca
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.6538124
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 10.640581
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
 --- !u!4 &423530162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7098352109583897444, guid: 51b8283cda0b9b341b3d326b548834d6, type: 3}
@@ -2068,63 +1954,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4599064972755663378, guid: 11a1de52375f0474aa3452cb228dd0a8, type: 3}
   m_PrefabInstance: {fileID: 1455313717}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1250691321
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2352133511767709312, guid: 6056c0a230879374ebfc1a17a1a9055e, type: 3}
-      propertyPath: m_Name
-      value: TapiocaBundle
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814274888073408033, guid: 6056c0a230879374ebfc1a17a1a9055e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 39.932987
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814274888073408033, guid: 6056c0a230879374ebfc1a17a1a9055e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 35.351997
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814274888073408033, guid: 6056c0a230879374ebfc1a17a1a9055e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -107.58174
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814274888073408033, guid: 6056c0a230879374ebfc1a17a1a9055e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814274888073408033, guid: 6056c0a230879374ebfc1a17a1a9055e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814274888073408033, guid: 6056c0a230879374ebfc1a17a1a9055e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814274888073408033, guid: 6056c0a230879374ebfc1a17a1a9055e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814274888073408033, guid: 6056c0a230879374ebfc1a17a1a9055e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814274888073408033, guid: 6056c0a230879374ebfc1a17a1a9055e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814274888073408033, guid: 6056c0a230879374ebfc1a17a1a9055e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6056c0a230879374ebfc1a17a1a9055e, type: 3}
 --- !u!1001 &1300242486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2638,6 +2467,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 851872287121461398, guid: 1f481aad678619941ad52ff5191f255d, type: 3}
+      propertyPath: MaxScore
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4880346338898137441, guid: 1f481aad678619941ad52ff5191f255d, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -2687,63 +2520,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f481aad678619941ad52ff5191f255d, type: 3}
---- !u!1001 &1700336313
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 568939023635807245, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_Name
-      value: Tapioca (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 44.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 36.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -105.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696274385246196934, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
 --- !u!4 &1703135497 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4599064972755663378, guid: 11a1de52375f0474aa3452cb228dd0a8, type: 3}
@@ -3934,10 +3710,6 @@ SceneRoots:
   - {fileID: 2093712558}
   - {fileID: 720110180}
   - {fileID: 769559636}
-  - {fileID: 1700336313}
-  - {fileID: 104923150}
-  - {fileID: 1250691321}
-  - {fileID: 334076668}
   - {fileID: 1572325766}
   - {fileID: 1300242486}
   - {fileID: 203259990}
