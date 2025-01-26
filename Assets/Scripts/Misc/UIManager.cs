@@ -41,8 +41,11 @@ public class UIManager : MonoBehaviour
 
     public void UpdateHealth(int newHealth)
     {
-        HealthImages[newHealth].texture = BrokenHeartImg;
-        anim.SetTrigger("ShowHealth");
+        if (HealthImages[newHealth] != null)
+        {
+            HealthImages[newHealth].texture = BrokenHeartImg;
+            anim.SetTrigger("ShowHealth");
+        }
     }
 
     public void PlayDeathAnim()

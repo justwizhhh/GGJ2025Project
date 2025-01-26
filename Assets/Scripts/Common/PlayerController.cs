@@ -137,14 +137,13 @@ public class PlayerController : MonoBehaviour
                 {
                     // Player gets brief invincibility time
                     StartCoroutine(HurtCooldown());
+                    uiManager.UpdateHealth(health);
                 }
 
                 if (HurtMaterials.Count != 0)
                 {
                     mesh.material = HurtMaterials[MaxHealth - health];
                 }
-
-                uiManager.UpdateHealth(health);
             }
         }
     }
