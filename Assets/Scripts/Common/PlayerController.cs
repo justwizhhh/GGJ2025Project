@@ -78,13 +78,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnApplicationFocus(bool focus)
     {
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         VirtualCam.enabled = true;
     }
 
     private void OnApplicationPause(bool pause)
     {
-        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         VirtualCam.enabled = false;
     }
 
