@@ -1138,38 +1138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerSquid
       objectReference: {fileID: 0}
-    - target: {fileID: 4200453431465476811, guid: e0f8e0537a0932547863a13d951fc85c, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: b7f3a051bd22753428dfffbea7b693b2, type: 2}
-    - target: {fileID: 4356772603991552268, guid: e0f8e0537a0932547863a13d951fc85c, type: 3}
-      propertyPath: MaxAccel
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4356772603991552268, guid: e0f8e0537a0932547863a13d951fc85c, type: 3}
-      propertyPath: MaxSpeed
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 4356772603991552268, guid: e0f8e0537a0932547863a13d951fc85c, type: 3}
-      propertyPath: MaxHealth
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4356772603991552268, guid: e0f8e0537a0932547863a13d951fc85c, type: 3}
       propertyPath: VirtualCam
       value: 
       objectReference: {fileID: 1300242487}
-    - target: {fileID: 4356772603991552268, guid: e0f8e0537a0932547863a13d951fc85c, type: 3}
-      propertyPath: MaxSpinAccel
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4356772603991552268, guid: e0f8e0537a0932547863a13d951fc85c, type: 3}
-      propertyPath: MaxSpinSpeed
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 4356772603991552268, guid: e0f8e0537a0932547863a13d951fc85c, type: 3}
-      propertyPath: MaxStrafeRotation
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2469,7 +2441,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 851872287121461398, guid: 1f481aad678619941ad52ff5191f255d, type: 3}
       propertyPath: MaxScore
-      value: 2
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4880346338898137441, guid: 1f481aad678619941ad52ff5191f255d, type: 3}
       propertyPath: m_Name

@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public float SpinDelayTime;
     public float MaxRotationDamping;
     public float MaxStrafeRotation;
+    public SkinnedMeshRenderer SquidBody;
 
     [Space(10)]
     [Header("Hurt/death Settings")]
@@ -115,8 +116,10 @@ public class PlayerController : MonoBehaviour
     private IEnumerator HurtCooldown()
     {
         isHurtCooldown = true;
+        SquidBody.material = HurtMaterials[1];
         yield return new WaitForSeconds(HurtCooldownTime);
         isHurtCooldown = false;
+        SquidBody.material = HurtMaterials[0];
     }
 
     [ContextMenu("Hurt the squid")]
@@ -131,6 +134,7 @@ public class PlayerController : MonoBehaviour
                 health--;
                 if (health <= 0)
                 {
+                    anim.SetBool("isDead", isDead);
                     OnDeath();
                 }
                 else
@@ -140,10 +144,7 @@ public class PlayerController : MonoBehaviour
                     uiManager.UpdateHealth(health);
                 }
 
-                if (HurtMaterials.Count != 0)
-                {
-                    mesh.material = HurtMaterials[MaxHealth - health];
-                }
+                anim.SetTrigger("hurt");
             }
         }
     }
