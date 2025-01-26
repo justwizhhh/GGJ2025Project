@@ -7,10 +7,17 @@ public class GameManager : MonoBehaviour
 {
     [Header("Main Variables")]
     public int MaxScore;
+    public float EndTransitionTime;
 
     [Space(10)]
     [Header("Global Variables")]
     public int Score;
+
+    private bool isGameEnding;
+
+    // Object references
+    private PlayerController player;
+    private UIManager uiManager;
 
     // todo, find all tapiocas
     
@@ -19,21 +26,49 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        player = FindFirstObjectByType<PlayerController>();
+        uiManager = FindFirstObjectByType<UIManager>();
+    }
+
+    private void Start()
+    {
+        uiManager.InitScore(MaxScore);
+    }
+
+    private void Update()
+    {
+        if (player.isDead)
+        {
+            uiManager.PlayDeathAnim();
+        }
     }
 
     public void UpdateScore()
     {
         Score++;
-        // Update HUD, etc etc
+        uiManager.UpdateScore(Score);
 
-        if (Score > MaxScore)
+        if (Score >= MaxScore)
         {
             EndGame();
         }
     }
 
+    private IEnumerator EndGameTransition()
+    {
+        player.enabled = false;
+        player.isInvincible = true;
+        uiManager.PlayEndAnim();
+        yield return new WaitForSeconds(EndTransitionTime);
+        SceneManager.LoadScene(3);
+    }
+
     public void EndGame()
     {
-        SceneManager.LoadScene(3);
+        if (!isGameEnding)
+        {
+            StartCoroutine(EndGameTransition());
+        }
     }
 }
