@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     // todo, find all tapiocas
     
     public static GameManager Instance;
+    [Space(10)]
+    [Header("Sounds")]
+    [SerializeField] AudioSource pickup;
 
     private void Awake()
     {
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScore()
     {
+        pickup.Play();
         Score++;
         uiManager.UpdateScore(Score);
 
