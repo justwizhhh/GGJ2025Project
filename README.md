@@ -1,6 +1,6 @@
-#BobaQuarium (ARCHIVE)
+# BobaQuarium (ARCHIVE)
 
-##Play the final submitted build here! - https://globalgamejam.org/games/2025/bobaquarium-9
+## Play the final submitted build here! - https://globalgamejam.org/games/2025/bobaquarium-9
 
 A cozy candy-themed 3D collectathon! Octo the Octopus is on a mission to collect all of the tapioca balls in the ocean, and create the world's biggest boba tea! Find all of the tapioca in the level without losing your health, and fend off against other vicious wildlife.
 
