@@ -31,6 +31,7 @@ public class TitleMenu : MonoBehaviour
 
     [Space(10)]
 
+    public GameObject LogoUI;
     public GameObject MainMenuUI;
     public GameObject OptionsUI;
     public GameObject CreditsUI;
@@ -43,6 +44,12 @@ public class TitleMenu : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main;
+    }
+
+    private void UpdateMenuCursor(bool isVisible)
+    {
+        MenuCursor.transform.GetChild(0).GetComponent<RawImage>().enabled = isVisible;
+        MenuCursor.transform.GetChild(1).GetComponent<RawImage>().enabled = isVisible;
     }
 
     void Update()
@@ -67,6 +74,8 @@ public class TitleMenu : MonoBehaviour
                             break;
                         case 1:
                             currentTitleSection = TitleSection.Credits;
+                            UpdateMenuCursor(false);
+                            LogoUI.SetActive(false);
                             MainMenuUI.SetActive(false);
                             CreditsUI.SetActive(true);
                             break;
@@ -91,6 +100,8 @@ public class TitleMenu : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     currentTitleSection = TitleSection.Null;
+                    UpdateMenuCursor(true);
+                    LogoUI.SetActive(true);
                     CreditsUI.SetActive(false);
                     MainMenuUI.SetActive(true);
                 }
