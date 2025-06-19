@@ -8,7 +8,6 @@ using TMPro;
 public class TitleMenu : MonoBehaviour
 {
     // A basic title-screen menu, where you can access the options
-
     enum TitleSection
     {
         Null,
@@ -38,6 +37,9 @@ public class TitleMenu : MonoBehaviour
 
     Camera cam;
 
+    [SerializeField] AudioSource menu_sound;
+
+
     private void Awake()
     {
         cam = Camera.main;
@@ -48,6 +50,9 @@ public class TitleMenu : MonoBehaviour
         switch (currentTitleSection)
         {
             case TitleSection.Null: // If nothing has been selected on the titlescreen yet
+                if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.W))
+                    menu_sound.Play();
+
                 menuOption += Input.GetKeyDown(KeyCode.S) ? 1 : Input.GetKeyDown(KeyCode.W) ? -1 : 0;
                 menuOption = Mathf.Clamp(menuOption, 0, 2);
 

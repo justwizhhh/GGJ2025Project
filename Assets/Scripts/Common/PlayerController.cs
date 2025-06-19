@@ -67,8 +67,13 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private UIManager uiManager;
 
+    [Header("Sounds")]
+    [SerializeField] AudioSource attack;
+    [SerializeField] AudioSource take_damage;
+
     private void Awake()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody>();
         mesh = GetComponentInChildren<MeshRenderer>();
@@ -100,6 +105,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Spin()
     {
+        attack.Play();
         isSpinning = true;
         isSpinCooldown = true;
         yield return new WaitForSeconds(MaxSpinTime);
@@ -132,6 +138,7 @@ public class PlayerController : MonoBehaviour
                 rb.AddForce((rb.position - knockbackSource).normalized * HurtKnockbackForce, ForceMode.Impulse);
 
                 health--;
+                take_damage.Play();
                 if (health <= 0)
                 {
                     anim.SetBool("isDead", true);
@@ -176,6 +183,10 @@ public class PlayerController : MonoBehaviour
             {
                 StartCoroutine(Spin());
             }
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
         }
 
         // Camera stuff
