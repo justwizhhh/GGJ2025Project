@@ -61,7 +61,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GradientRamp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 5731952432800411093}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -188,3 +188,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 9
+--- !u!28 &5731952432800411093
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: z__GradientRampTex{"mode":0,"colorKeys":[{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":0.0},{"color":{"r":0.6226415038108826,"g":0.595971405506134,"b":0.5492168068885803,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":1.0}]}
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 256
+  m_Height: 1
+  m_CompleteImageSize: 1024
+  m_MipsStripped: 0
+  m_TextureFormat: 5
+  m_MipCount: 1
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 1024
+  _typelessdata: fffffffffffffffffffefefefffefefefffdfdfdfffdfdfdfffdfdfcfffcfcfcfffcfcfbfffcfbfbfffbfbfafffbfbfafffafafafffafaf9fffaf9f9fff9f9f8fff9f9f8fff9f8f7fff8f8f7fff8f7f6fff7f7f6fff7f7f6fff7f6f5fff6f6f5fff6f5f4fff6f5f4fff5f4f3fff5f4f3fff4f4f2fff4f3f2fff4f3f1fff3f2f1fff3f2f1fff3f2f0fff2f1f0fff2f1effff1f0effff1f0eefff1f0eefff0efedfff0efedfff0eeedffefeeecffefeeecffeeedebffeeedebffeeeceaffedeceaffedece9ffedebe9ffecebe8ffeceae8ffebeae8ffebeae7ffebe9e7ffeae9e6ffeae8e6ffe9e8e5ffe9e8e5ffe9e7e4ffe8e7e4ffe8e6e4ffe8e6e3ffe7e6e3ffe7e5e2ffe6e5e2ffe6e4e1ffe6e4e1ffe5e4e0ffe5e3e0ffe5e3dfffe4e2dfffe4e2dfffe3e2deffe3e1deffe3e1ddffe2e0ddffe2e0dcffe2dfdcffe1dfdbffe1dfdbffe0dedaffe0dedaffe0dddaffdfddd9ffdfddd9ffdfdcd8ffdedcd8ffdedbd7ffdddbd7ffdddbd6ffdddad6ffdcdad6ffdcd9d5ffdcd9d5ffdbd9d4ffdbd8d4ffdad8d3ffdad7d3ffdad7d2ffd9d7d2ffd9d6d1ffd9d6d1ffd8d5d1ffd8d5d0ffd7d5d0ffd7d4cfffd7d4cfffd6d3ceffd6d3ceffd5d3cdffd5d2cdffd5d2cdffd4d1ccffd4d1ccffd4d1cbffd3d0cbffd3d0caffd2cfcaffd2cfc9ffd2cfc9ffd1cec8ffd1cec8ffd1cdc8ffd0cdc7ffd0ccc7ffcfccc6ffcfccc6ffcfcbc5ffcecbc5ffcecac4ffcecac4ffcdcac3ffcdc9c3ffccc9c3ffccc8c2ffccc8c2ffcbc8c1ffcbc7c1ffcbc7c0ffcac6c0ffcac6bfffc9c6bfffc9c5bfffc9c5beffc8c4beffc8c4bdffc8c4bdffc7c3bcffc7c3bcffc6c2bbffc6c2bbffc6c2baffc5c1baffc5c1baffc5c0b9ffc4c0b9ffc4c0b8ffc3bfb8ffc3bfb7ffc3beb7ffc2beb6ffc2beb6ffc1bdb6ffc1bdb5ffc1bcb5ffc0bcb4ffc0bcb4ffc0bbb3ffbfbbb3ffbfbab2ffbebab2ffbebab1ffbeb9b1ffbdb9b1ffbdb8b0ffbdb8b0ffbcb7afffbcb7afffbbb7aeffbbb6aeffbbb6adffbab5adffbab5adffbab5acffb9b4acffb9b4abffb8b3abffb8b3aaffb8b3aaffb7b2a9ffb7b2a9ffb7b1a8ffb6b1a8ffb6b1a8ffb5b0a7ffb5b0a7ffb5afa6ffb4afa6ffb4afa5ffb4aea5ffb3aea4ffb3ada4ffb2ada3ffb2ada3ffb2aca3ffb1aca2ffb1aba2ffb1aba1ffb0aba1ffb0aaa0ffafaaa0ffafa99fffafa99fffaea99fffaea89effada89effada79dffada79dffaca79cffaca69cffaca69bffaba59bffaba59affaaa49affaaa49affaaa499ffa9a399ffa9a398ffa9a298ffa8a297ffa8a297ffa7a196ffa7a196ffa7a096ffa6a095ffa6a095ffa69f94ffa59f94ffa59e93ffa49e93ffa49e92ffa49d92ffa39d91ffa39c91ffa39c91ffa29c90ffa29b90ffa19b8fffa19a8fffa19a8effa09a8effa0998dffa0998dff9f988dff9f988c
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
