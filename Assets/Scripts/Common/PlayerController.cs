@@ -83,14 +83,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnApplicationFocus(bool focus)
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        VirtualCam.enabled = true;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
     }
 
     private void OnApplicationPause(bool pause)
     {
         Cursor.lockState = CursorLockMode.None;
-        VirtualCam.enabled = false;
+        Cursor.visible = true;
     }
 
     private void Start()
@@ -204,6 +204,13 @@ public class PlayerController : MonoBehaviour
             float distance = VirtualCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_CameraDistance;
             VirtualCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_CameraDistance = 
                 Mathf.Lerp(distance, CameraDeathDistance, MaxCameraDamping);
+        }
+
+        // Refocusing the player's camera (in the Unity Editor)
+        if (Input.GetMouseButtonDown(0) && Cursor.lockState != CursorLockMode.Confined)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = false;
         }
 
         // Animation updating
