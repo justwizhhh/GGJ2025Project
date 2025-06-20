@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour
         AudioSource mainSource = audioSources[0];
         for (int i = 0; i < MaxSoundLimit - 1; i++)
         {
-            if (audioSources[i].clip != null) 
+            if (audioSources[i].resource != null) 
             {
                 continue; 
             }
@@ -53,13 +53,13 @@ public class AudioManager : MonoBehaviour
         if (mainSource == null) { yield return null; } // If no AudioSources are found, end the coroutine, no sound plays
 
         // Get the sound from the 'Resources' folder, play it, and then erase the AudioClip reference
-        mainSource.clip = Resources.Load<AudioClip>("Audio/Sounds/" + soundName);
+        mainSource.resource = Resources.Load<AudioClip>("Audio/Sounds/" + soundName);
 
-        mainSource.volume = SoundVolume + volume;
+        mainSource.volume = SoundVolume;
 
         mainSource.Play();
         yield return new WaitForSeconds(mainSource.clip.length);
-        mainSource.clip = null;
+        mainSource.resource = null;
     }
 
     public void PlayMusic(string musicName, float volume)
@@ -67,12 +67,19 @@ public class AudioManager : MonoBehaviour
         AudioSource mainSource = audioSources[MaxSoundLimit];
 
         // Get the music from the 'Resources' folder, play it, and then erase the AudioClip reference
-        mainSource.clip = Resources.Load<AudioClip>("Audio/Music/" + musicName);
+        mainSource.resource = Resources.Load<AudioClip>("Audio/Music/" + musicName);
 
-        mainSource.volume = MusicVolume + volume;
+        mainSource.volume = MusicVolume;
         mainSource.loop = true;
 
         mainSource.Play();
+    }
+
+    public void UpdateMusicVolume(float addedVolume)
+    {
+        AudioSource mainSource = audioSources[MaxSoundLimit];
+        MusicVolume += Mathf.Clamp(MusicVolume + addedVolume, 0, 1);
+        mainSource.volume = MusicVolume;
     }
 
     // Stopping all instances of sound/music
@@ -80,12 +87,12 @@ public class AudioManager : MonoBehaviour
     {
         foreach (AudioSource sound in audioSources)
         {
-            sound.clip = null;
+            sound.resource = null;
         }
     }
 
     public void StopMusic()
     {
-        musicSource.clip = null;
+        musicSource.resource = null;
     }
 }

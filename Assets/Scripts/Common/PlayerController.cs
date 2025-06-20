@@ -67,10 +67,6 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private UIManager uiManager;
 
-    [Header("Sounds")]
-    [SerializeField] AudioSource attack;
-    [SerializeField] AudioSource take_damage;
-
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -105,7 +101,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Spin()
     {
-        attack.Play();
+        StartCoroutine(AudioManager.instance.PlaySound("swoosh", 1));
         isSpinning = true;
         isSpinCooldown = true;
         yield return new WaitForSeconds(MaxSpinTime);
@@ -138,7 +134,7 @@ public class PlayerController : MonoBehaviour
                 rb.AddForce((rb.position - knockbackSource).normalized * HurtKnockbackForce, ForceMode.Impulse);
 
                 health--;
-                take_damage.Play();
+                StartCoroutine(AudioManager.instance.PlaySound("pufferfishcough", 1));
                 if (health <= 0)
                 {
                     anim.SetBool("isDead", true);
