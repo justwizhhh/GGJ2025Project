@@ -18,6 +18,8 @@ public class IntroAnim : MonoBehaviour
 
     public void IntroStart()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         StartCoroutine(Animation());
     }
 

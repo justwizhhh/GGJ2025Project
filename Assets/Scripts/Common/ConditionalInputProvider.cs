@@ -6,12 +6,12 @@ using UnityEngine.InputSystem;
 
 public class ConditionalInputProvider : Cinemachine.CinemachineInputProvider
 {
-    public float MouseSensitivity = 0.1f;
+    public float MouseSensitivity = 0.075f;
 
     // Limits how quickly the mouse can move the camera, while also disabling it if the player's mouse is not in focus
     public override float GetAxisValue(int axis)
     {
-        if (Cursor.lockState != CursorLockMode.Confined || !Application.isFocused)
+        if (Cursor.lockState != CursorLockMode.Locked || !Application.isFocused)
         {
             return 0;
         }

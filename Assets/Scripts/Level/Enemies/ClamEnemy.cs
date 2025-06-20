@@ -6,8 +6,11 @@ public class ClamEnemy : Enemy
 {
     [Space(10)]
     public float MaxMoveSpeed;
+    public float MinChaseDistance;
+    public float MaxChaseDistance;
 
     private float currentMoveSpeed;
+    private float currentChaseDistance;
     private Transform playerPos;
 
     public override void Start()
@@ -15,23 +18,23 @@ public class ClamEnemy : Enemy
         base.Start();
 
         currentMoveSpeed = Random.Range(MoveSpeed, MaxMoveSpeed);
+        currentChaseDistance = Random.Range(MinChaseDistance, MaxChaseDistance);
         playerPos = FindFirstObjectByType<PlayerController>().transform;
     }
 
     public override void movement()
     {
         transform.LookAt(playerPos.position);
-        rb.velocity = transform.forward * currentMoveSpeed * Time.deltaTime;
-
-        /*float distance = Vector3.Distance(playerPos.position, rb.position);
-        if (distance <= ChaseDistance)
+        
+        float distance = Vector3.Distance(rb.position, playerPos.position);
+        if (distance <= currentChaseDistance)
         {
-            
+            rb.velocity = transform.forward * currentMoveSpeed * Time.deltaTime;
         }
         else
         {
             rb.velocity = Vector3.zero;
-        }*/
+        }
     }
 
     public new void OnTriggerStay(Collider collision)

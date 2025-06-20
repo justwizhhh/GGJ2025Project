@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator EndGameTransition()
     {
-        player.enabled = false;
+        //player.enabled = false;
         player.isInvincible = true;
         uiManager.PlayEndAnim();
         yield return new WaitForSeconds(EndTransitionTime);

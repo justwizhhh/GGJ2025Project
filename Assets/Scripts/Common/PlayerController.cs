@@ -63,23 +63,22 @@ public class PlayerController : MonoBehaviour
     // Object references
     private Collider2D col;
     private Rigidbody rb;
-    private MeshRenderer mesh;
+    private GameObject mesh;
     private Animator anim;
     private UIManager uiManager;
 
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody>();
-        mesh = GetComponentInChildren<MeshRenderer>();
+        mesh = transform.GetChild(0).gameObject;
         anim = GetComponentInChildren<Animator>();
         uiManager = FindFirstObjectByType<UIManager>();
     }
 
     private void OnApplicationFocus(bool focus)
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
@@ -203,9 +202,9 @@ public class PlayerController : MonoBehaviour
         }
 
         // Refocusing the player's camera (in the Unity Editor)
-        if (Input.GetMouseButtonDown(0) && Cursor.lockState != CursorLockMode.Confined)
+        if (Input.GetMouseButtonDown(0) && Cursor.lockState != CursorLockMode.Locked)
         {
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
 
@@ -237,14 +236,14 @@ public class PlayerController : MonoBehaviour
                 {
                     if (rb.velocity.sqrMagnitude <= MaxSpinSpeed)
                     {
-                        rb.AddForce(transform.forward * MaxSpinAccel, ForceMode.Acceleration);
+                        rb.AddForce(mesh.transform.forward * MaxSpinAccel, ForceMode.Acceleration);
                     }
                 }
                 else
                 {
                     if (rb.velocity.sqrMagnitude <= MaxSpeed)
                     {
-                        rb.AddForce(transform.forward * (forwardInput ? 1 : backwardInput ? -1 : 0) * MaxAccel, ForceMode.Acceleration);
+                        rb.AddForce(mesh.transform.forward * (forwardInput ? 1 : backwardInput ? -1 : 0) * MaxAccel, ForceMode.Acceleration);
                     }
                 }
             }

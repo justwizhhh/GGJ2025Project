@@ -54,7 +54,9 @@ MonoBehaviour:
   attack_radius: {fileID: 0}
   despawn_timer: 1000
   MoveSpeed: 10
-  MaxMoveSpeed: 200
+  MaxMoveSpeed: 280
+  MinChaseDistance: 40
+  MaxChaseDistance: 200
 --- !u!54 &1590869167116632429
 Rigidbody:
   m_ObjectHideFlags: 0
