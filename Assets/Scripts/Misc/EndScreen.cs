@@ -8,7 +8,8 @@ public class EndScreen : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            Application.Quit();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }

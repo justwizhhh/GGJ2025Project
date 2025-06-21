@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            restartInput = Input.GetKeyDown(KeyCode.Return) ? true : false;
+            restartInput = Input.GetKeyDown(KeyCode.Space) ? true : false;
         }
 
         if (spinInput && !backwardInput)

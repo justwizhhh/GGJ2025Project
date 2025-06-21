@@ -67,6 +67,12 @@ public class TitleMenu : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.W))
         {
             StartCoroutine(AudioManager.instance.PlaySound("game_start", 1)); 
@@ -79,7 +85,7 @@ public class TitleMenu : MonoBehaviour
                 menuOption = Mathf.Clamp(menuOption, 0, 3);
 
                 // Selecting each menu options one-by-one
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     switch (menuOption)
                     {
@@ -152,7 +158,7 @@ public class TitleMenu : MonoBehaviour
                 }
 
                 // Going back to the main menu
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (Input.GetKeyDown(KeyCode.Backspace))
                 {
                     currentTitleSection = TitleSection.Null;
                     menuOption = 1;
@@ -167,7 +173,7 @@ public class TitleMenu : MonoBehaviour
             case TitleSection.Credits:
 
                 // Going back to the main menu
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (Input.GetKeyDown(KeyCode.Backspace))
                 {
                     currentTitleSection = TitleSection.Null;
                     menuOption = 2;

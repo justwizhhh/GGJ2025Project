@@ -45,17 +45,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 568939023635807245, guid: ae5a45c5bb87d10438609cb583880f07, type: 3}
+  - {fileID: 8122573701062071285, guid: 178509a6d8758ed4183369339ecb3751, type: 3}
+  - {fileID: 2352133511767709312, guid: 6056c0a230879374ebfc1a17a1a9055e, type: 3}
   - {fileID: 2352133511767709312, guid: 6056c0a230879374ebfc1a17a1a9055e, type: 3}
   - {fileID: 5306953379190126857, guid: c7fbcd66f02aab045b529b2bf42653b0, type: 3}
   - {fileID: 5306953379190126857, guid: c7fbcd66f02aab045b529b2bf42653b0, type: 3}
   - {fileID: 8177286141658543106, guid: 1dc39260d6208b04cba23fb9b3f5da92, type: 3}
   - {fileID: 411518595823035829, guid: a600240af269184428ccacdcd395e4c7, type: 3}
+  - {fileID: 365487713105287171, guid: 1a5741a6a2ad9ef42bea5e2538c6e4c3, type: 3}
+  - {fileID: 365487713105287171, guid: 1a5741a6a2ad9ef42bea5e2538c6e4c3, type: 3}
+  - {fileID: 2616644621267892496, guid: 648317bdeb102c342a8765b6ca2380ee, type: 3}
   enemies_obj: []
-  has_run: 0
   player: {fileID: 0}
   spawnpos: {x: 0, y: 0, z: 0}
-  MaxSpawnCount: 30
+  MaxSpawnCount: 85
   minDistance: 0
-  spawnDistance: 30
-  despawnDistance: 25
+  spawnDistance: 100
+  despawnDistance: 200
