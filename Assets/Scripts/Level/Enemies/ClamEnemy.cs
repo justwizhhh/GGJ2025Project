@@ -37,9 +37,9 @@ public class ClamEnemy : Enemy
         }
     }
 
-    public new void OnTriggerStay(Collider collision)
+    public void OnCollisionStay(Collision collision)
     {
-        if (collision.TryGetComponent<PlayerController>(out PlayerController player))
+        if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController player))
         {
             player.OnHurt(transform.position);
             Destroy(gameObject);
