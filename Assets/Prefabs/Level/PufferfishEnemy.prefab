@@ -61,7 +61,7 @@ MonoBehaviour:
   MinXRot: -20
   Tapioca: {fileID: 0}
   FishModels: []
-  PuffUpDistance: 8
+  PuffUpDistance: 11
   PuffUpScale: 5
   PuffUpSpeed: 0.075
   PuffUpDetachForce: 12
