@@ -38,15 +38,24 @@ public class TitleMenu : MonoBehaviour
     public GameObject CreditsUI;
 
     Camera cam;
+    FadeUI fadeUI;
 
     private void Awake()
     {
         cam = Camera.main;
+        fadeUI = FindFirstObjectByType<FadeUI>();
     }
 
     private void Start()
     {
         AudioManager.instance.PlayMusic("GGJ2025ProjectMusic OLD", 1);
+    }
+
+    private IEnumerator StartGame()
+    {
+        fadeUI.FadeOut();
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(2);
     }
 
     private void UpdateMenuCursor(bool isVisible)
@@ -75,10 +84,11 @@ public class TitleMenu : MonoBehaviour
                     {
                         case 0:
                             currentTitleSection = TitleSection.StartGame;
-                            SceneManager.LoadScene(2);
+                            StartCoroutine(StartGame());
                             break;
                         case 1:
                             currentTitleSection = TitleSection.Options;
+                            menuOption = 0;
                             MainMenuUI.SetActive(false);
                             OptionsUI.SetActive(true);
                             break;
@@ -138,6 +148,7 @@ public class TitleMenu : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     currentTitleSection = TitleSection.Null;
+                    menuOption = 1;
                     OptionsUI.SetActive(false);
                     MainMenuUI.SetActive(true);
                 }
@@ -152,6 +163,7 @@ public class TitleMenu : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     currentTitleSection = TitleSection.Null;
+                    menuOption = 2;
                     UpdateMenuCursor(true);
                     LogoUI.SetActive(true);
                     CreditsUI.SetActive(false);
@@ -165,6 +177,8 @@ public class TitleMenu : MonoBehaviour
             case TitleSection.Exit:
                 Application.Quit();
                 break;
+
+            default: break;
         }
 
         // Moving the cursor object around, depending on what part of the menu is being selected currently

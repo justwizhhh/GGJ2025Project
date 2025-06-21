@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     // Object references
     private PlayerController player;
     private UIManager uiManager;
+    private FadeUI fadeUI;
 
     public static GameManager Instance;
 
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
 
         player = FindFirstObjectByType<PlayerController>();
         uiManager = FindFirstObjectByType<UIManager>();
+        fadeUI = FindFirstObjectByType<FadeUI>();
     }
 
     private void Start()
@@ -61,6 +63,10 @@ public class GameManager : MonoBehaviour
         player.isInvincible = true;
         uiManager.PlayEndAnim();
         yield return new WaitForSeconds(EndTransitionTime);
+
+        fadeUI.FadeOut();
+        yield return new WaitForSeconds(3);
+
         SceneManager.LoadScene(3);
     }
 

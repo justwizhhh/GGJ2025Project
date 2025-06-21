@@ -78,7 +78,7 @@ public class AudioManager : MonoBehaviour
     public void UpdateMusicVolume(float addedVolume)
     {
         AudioSource mainSource = audioSources[MaxSoundLimit];
-        MusicVolume += Mathf.Clamp(MusicVolume + addedVolume, 0, 1);
+        MusicVolume = Mathf.Clamp(MusicVolume + addedVolume, 0, 1);
         mainSource.volume = MusicVolume;
     }
 
