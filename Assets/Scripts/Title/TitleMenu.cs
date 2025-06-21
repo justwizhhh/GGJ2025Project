@@ -54,6 +54,7 @@ public class TitleMenu : MonoBehaviour
     private IEnumerator StartGame()
     {
         fadeUI.FadeOut();
+        StartCoroutine(AudioManager.instance.PlaySound("bubbleTransition", 1));
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(2);
     }
@@ -142,6 +143,12 @@ public class TitleMenu : MonoBehaviour
 
                     OptionsUI.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text =
                         "Sound Volume - " + (Mathf.RoundToInt(AudioManager.instance.SoundVolume * 100)).ToString() + "%";
+                }
+
+                // Sound effect for changing the volume of music/sound
+                if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
+                {
+                    StartCoroutine(AudioManager.instance.PlaySound("game_start", 1));
                 }
 
                 // Going back to the main menu

@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(EndTransitionTime);
 
         fadeUI.FadeOut();
+        StartCoroutine(AudioManager.instance.PlaySound("bubbleTransition", 1));
         yield return new WaitForSeconds(3);
 
         SceneManager.LoadScene(3);
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour
         if (!isGameEnding)
         {
             StartCoroutine(EndGameTransition());
+            isGameEnding = true;
         }
     }
 }

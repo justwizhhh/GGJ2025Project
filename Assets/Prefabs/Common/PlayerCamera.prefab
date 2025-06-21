@@ -370,7 +370,7 @@ MonoBehaviour:
   AutoEnableInputs: 1
   XYAxis: {fileID: 107974746012609787, guid: bd9a9dd23a5fb464a8e04cf95eaea101, type: 3}
   ZAxis: {fileID: 0}
-  MouseSensitivity: 0.06
+  MouseSensitivity: 0.02
 --- !u!1 &4635099838243617551
 GameObject:
   m_ObjectHideFlags: 0

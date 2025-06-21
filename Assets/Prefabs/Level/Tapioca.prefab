@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930bcd87476f9ed42ba9178386c47943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HomingRadius: 2.6
-  HomingDamping: 0.02
+  HomingRadius: 3.2
+  HomingDamping: 0.4
 --- !u!33 &885964780970508973
 MeshFilter:
   m_ObjectHideFlags: 0
