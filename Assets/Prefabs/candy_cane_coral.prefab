@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1267546002750328382}
   - component: {fileID: 1670638219564543932}
   - component: {fileID: 5888587405357995196}
+  - component: {fileID: 8845449749170912470}
   m_Layer: 0
   m_Name: candy_cane_coral
   m_TagString: Untagged
@@ -85,3 +86,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8845449749170912470
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722914980753804791}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9222744674544957399, guid: 1ecc459bdbbcf36439f34b14e8007dfa, type: 3}

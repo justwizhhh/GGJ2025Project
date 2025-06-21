@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 3674145002620441411}
   - component: {fileID: 4429819060349668866}
   - component: {fileID: 5528289352045380351}
+  - component: {fileID: 8908589426681058397}
   m_Layer: 0
   m_Name: ice_lolly_better
   m_TagString: Untagged
@@ -118,6 +119,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8908589426681058397
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5513809156853360533}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2838744546004356916, guid: 1ecc459bdbbcf36439f34b14e8007dfa, type: 3}
 --- !u!1 &6210851839485665677
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +152,7 @@ GameObject:
   - component: {fileID: 7081724197891988142}
   - component: {fileID: 8163108805451232280}
   - component: {fileID: 4315016394625699828}
+  - component: {fileID: 1698544746013022123}
   m_Layer: 0
   m_Name: ice_lolly_stick
   m_TagString: Untagged
@@ -203,3 +227,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1698544746013022123
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6210851839485665677}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8014050882058200207, guid: 1ecc459bdbbcf36439f34b14e8007dfa, type: 3}

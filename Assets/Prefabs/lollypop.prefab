@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8206714635915207998}
   - component: {fileID: 1590485140609217382}
   - component: {fileID: 6044472292485466257}
+  - component: {fileID: 953292743131762411}
   m_Layer: 0
   m_Name: lollypop
   m_TagString: Untagged
@@ -118,6 +119,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &953292743131762411
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5243599399897557577}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 142919105807706337, guid: 1ecc459bdbbcf36439f34b14e8007dfa, type: 3}
 --- !u!1 &7644623586139287809
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +152,7 @@ GameObject:
   - component: {fileID: 5546210825792986450}
   - component: {fileID: 4274016061324466980}
   - component: {fileID: 518408672551532489}
+  - component: {fileID: 8169676565290191076}
   m_Layer: 0
   m_Name: lollypop_stick
   m_TagString: Untagged
@@ -203,3 +227,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8169676565290191076
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644623586139287809}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4957191635221661887, guid: 1ecc459bdbbcf36439f34b14e8007dfa, type: 3}

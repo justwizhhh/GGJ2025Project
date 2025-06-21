@@ -128,6 +128,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 06c98319ee40b1f44bab3c7d2a51de18, type: 2}
+    - target: {fileID: 5866666021909216657, guid: cf8cbd38e105597468c5ed13c5ad701e, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7530310252511216006, guid: cf8cbd38e105597468c5ed13c5ad701e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0169

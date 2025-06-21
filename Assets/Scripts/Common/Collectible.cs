@@ -46,7 +46,7 @@ public class Collectible : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         float distance = Vector3.Distance(playerPos.position, rb.position);
         if (distance <= 3.0f)

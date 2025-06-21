@@ -40,19 +40,6 @@ public class Enemy : MonoBehaviour
         player = FindFirstObjectByType<PlayerController>().gameObject;
     }
 
-    void Update()
-    {
-        //calculates distance between player and enemies
-        playerDistance = Vector3.Distance(player.transform.position, rb.position);
-
-        //checks if the enemy has no health left or despawn timer
-        if (despawn_timer <= 0.0f)
-        {
-            Destroy(gameObject);
-        }
-        detection();
-    }
-
     private void FixedUpdate()
     {
         //checks if out of range and slowly despawns
@@ -67,6 +54,16 @@ public class Enemy : MonoBehaviour
             can_despawn = false;
 
         }
+
+        //calculates distance between player and enemies
+        playerDistance = Vector3.Distance(player.transform.position, rb.position);
+
+        //checks if the enemy has no health left or despawn timer
+        if (despawn_timer <= 0.0f)
+        {
+            Destroy(gameObject);
+        }
+        detection();
     }
 
     //moves towards the player

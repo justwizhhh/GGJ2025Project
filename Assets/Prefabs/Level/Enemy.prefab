@@ -50,10 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
-  health: 100
   player: {fileID: 0}
   can_despawn: 0
-  despawn_radius: {fileID: 0}
   attack_radius: {fileID: 0}
   despawn_timer: 1000
   MoveSpeed: 1
@@ -172,5 +170,5 @@ Animation:
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_CullingType: 0

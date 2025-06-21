@@ -40,7 +40,7 @@ public class PufferfishEnemy : FishEnemy
         base.movement();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         float distance = Vector3.Distance(playerPos.position, rb.position);
         if (distance <= PuffUpDistance)

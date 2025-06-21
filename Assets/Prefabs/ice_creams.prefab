@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4747953045126435153}
   - component: {fileID: 3535423867965224688}
   - component: {fileID: 2699130919775573219}
+  - component: {fileID: 3285197848340125090}
   m_Layer: 0
   m_Name: icee_creame_scoop_ring2
   m_TagString: Untagged
@@ -85,6 +86,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3285197848340125090
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307590106257609993}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3380850254575479118, guid: 1ecc459bdbbcf36439f34b14e8007dfa, type: 3}
 --- !u!1 &2196201288841875143
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +119,7 @@ GameObject:
   - component: {fileID: 5661373530423126261}
   - component: {fileID: 4636413135312911637}
   - component: {fileID: 5582336548193584153}
+  - component: {fileID: 351900606838672130}
   m_Layer: 0
   m_Name: ice_cream_flake
   m_TagString: Untagged
@@ -170,6 +194,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &351900606838672130
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196201288841875143}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9149589501878396762, guid: 1ecc459bdbbcf36439f34b14e8007dfa, type: 3}
 --- !u!1 &2853174647843486554
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +227,7 @@ GameObject:
   - component: {fileID: 8620097319189353432}
   - component: {fileID: 5509833465071499303}
   - component: {fileID: 7751040000876412329}
+  - component: {fileID: 2700722527377565272}
   m_Layer: 0
   m_Name: ice_cream4
   m_TagString: Untagged
@@ -255,6 +302,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2700722527377565272
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2853174647843486554}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5983399588649982752, guid: 1ecc459bdbbcf36439f34b14e8007dfa, type: 3}
 --- !u!1 &5491058634673815542
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +335,7 @@ GameObject:
   - component: {fileID: 3579307543160757213}
   - component: {fileID: 8567431809344703923}
   - component: {fileID: 8226252560980074357}
+  - component: {fileID: 149640343189847271}
   m_Layer: 0
   m_Name: ice_cream1
   m_TagString: Untagged
@@ -340,6 +410,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &149640343189847271
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5491058634673815542}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2957832054748416110, guid: 1ecc459bdbbcf36439f34b14e8007dfa, type: 3}
 --- !u!1 &6281176354868545814
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +443,7 @@ GameObject:
   - component: {fileID: 5179055475581122188}
   - component: {fileID: 7560652071994948722}
   - component: {fileID: 7452788779000900639}
+  - component: {fileID: 7033769472710118535}
   m_Layer: 0
   m_Name: ice_cream2
   m_TagString: Untagged
@@ -425,6 +518,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7033769472710118535
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6281176354868545814}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4018080935420536259, guid: 1ecc459bdbbcf36439f34b14e8007dfa, type: 3}
 --- !u!1 &6960084530482821005
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +551,7 @@ GameObject:
   - component: {fileID: 1515454098101076626}
   - component: {fileID: 5762267198118616016}
   - component: {fileID: 1069659955074665556}
+  - component: {fileID: 7613742741704071890}
   m_Layer: 0
   m_Name: icee_creame_scoop_ring
   m_TagString: Untagged
@@ -510,6 +626,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7613742741704071890
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6960084530482821005}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1781737913998037008, guid: 1ecc459bdbbcf36439f34b14e8007dfa, type: 3}
 --- !u!1 &7323522488518350354
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +659,7 @@ GameObject:
   - component: {fileID: 6792010907685315762}
   - component: {fileID: 2448440739003535818}
   - component: {fileID: 8927598946108691658}
+  - component: {fileID: 4067606749954041209}
   m_Layer: 0
   m_Name: icee_creame_scoop_ring1
   m_TagString: Untagged
@@ -595,6 +734,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4067606749954041209
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7323522488518350354}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -583842187127573070, guid: 1ecc459bdbbcf36439f34b14e8007dfa, type: 3}
 --- !u!1 &7536400845306143223
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,6 +800,7 @@ GameObject:
   - component: {fileID: 1818867014992669516}
   - component: {fileID: 4982715628656587049}
   - component: {fileID: 60865368079560102}
+  - component: {fileID: 2371332538380489195}
   m_Layer: 0
   m_Name: ice_cream3
   m_TagString: Untagged
@@ -713,6 +875,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2371332538380489195
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821902449859266914}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9140957560800242682, guid: 1ecc459bdbbcf36439f34b14e8007dfa, type: 3}
 --- !u!1 &8995897017449030696
 GameObject:
   m_ObjectHideFlags: 0
